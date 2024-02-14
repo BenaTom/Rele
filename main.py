@@ -1,15 +1,38 @@
-from Rele_lib import Relay, RelayNC, RelayNO, RelaySSR
+from Rele_lib import Relay, RelayNC, RelaySSR
+
 
 # test code
-RelayOne = RelaySSR("rele", 0,)
 
+rele_coil = 0
+rele_state = 0
+
+RelayOne = Relay("rele", rele_state)
 
 print(RelayOne.get_state())
 
-RelayOne.start()
+rele_coil = RelayOne.start()
+# simulace fyzickeho rele
+if rele_coil == 1:
+    RelayOne.state = 1
 print(RelayOne.get_state())
 
-RelayOne.stop()
+rele_coil = RelayOne.stop()
+# simulace fyzickeho rele
+if rele_coil == 0:
+    RelayOne.state = 0
+print(RelayOne.get_state())
+
+print(RelayOne.get_info())
+
+
+RelayOne = RelaySSR("rele", rele_state)
+
+print(RelayOne.get_state())
+
+rele_coil = RelayOne.start()
+print(RelayOne.get_state())
+
+rele_coil = RelayOne.stop()
 print(RelayOne.get_state())
 
 print(RelayOne.get_info())
