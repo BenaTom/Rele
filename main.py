@@ -1,4 +1,4 @@
-from Rele_lib import Relay, RelayNC, RelaySSR
+from Relay_lib import Relay, RelayNC, RelaySSR
 
 
 # test code
@@ -6,7 +6,7 @@ from Rele_lib import Relay, RelayNC, RelaySSR
 rele_coil = 0
 rele_state = 0
 
-RelayOne = Relay("rele", rele_state)
+RelayOne = RelayNC("rele", rele_state)
 
 print(RelayOne.get_state())
 
